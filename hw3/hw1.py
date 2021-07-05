@@ -3,10 +3,8 @@
 Числа запрашивать у пользователя, предусмотреть обработку ситуации деления на ноль.
 """
 
-
 def division_number(first_arg, second_arg):
     return first_arg / second_arg
-
 
 while True:
     first_arg, second_arg = list(map(int, input('Введите пару чисел: ').split()))
