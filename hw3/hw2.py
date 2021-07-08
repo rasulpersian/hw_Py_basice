@@ -4,3 +4,15 @@
 Осуществить вывод данных о пользователе одной строкой.
 """
 
+
+def exe_2(**kwargs):
+    return list(kwargs.values())
+
+
+def exe_2_use():
+    print(exe_2(name=input('Введите Имя: '),
+                s_name=input('Введите Фамилию: '),
+                date=input('Введите день рождения: '),
+                city=input('Введите город проживания: '),
+                email=input('Введите email: '),
+                phone=input('Введите тел: ')))
