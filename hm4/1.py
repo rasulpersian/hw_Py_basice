@@ -19,3 +19,4 @@ def counter(output, rate_per_hour, allowance):
 
 
 print('Зп сотрудника: ', counter(output, rate_per_hour, allowance))
+
