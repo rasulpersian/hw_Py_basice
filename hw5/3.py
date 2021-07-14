@@ -6,3 +6,12 @@
 Иванов 23543.12
 Петров 13749.32
 """
+# ! НЕ понял "Выполнить подсчёт средней величины дохода сотрудников." Это все сотрудники или только те у кого < 20000
+# Поэтому решаю для всех
+salaries = []
+with open('staff_salary.txt', 'r', encoding='utf-8') as staff_info:
+    for line in staff_info.readlines():
+        if float(line.split()[1]) < 20000:
+            print(f'Сотрудник: {line.split()[0]} >> Оклад меньше 20 000 >> Оклад = {line.split()[1]}')
+        salaries.append(line.split()[1])
+    print(" Средняя величина дохода сотрудников = {:.2f}".format(sum(map(float, salaries)) / len(salaries)))
