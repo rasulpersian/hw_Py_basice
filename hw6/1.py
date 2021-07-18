@@ -10,33 +10,61 @@
 
 Задачу можно усложнить, реализовав проверку порядка режимов. При его нарушении выводить соответствующее сообщение и завершать скрипт.
 """
+
 from datetime import datetime
 import time
 
 
+# ВАРИАНТ 1 - неверный
+# class TrafficLight:
+#     _color = 'red'
+#
+#     def running(self):
+#         if self._color is None or '':
+#             print('Нарушена пордок переключение светофора')
+#         elif self._color == 'красный':
+#             print(f'\033[41m горит {self._color} Время:', datetime.now().strftime('%H:%M:%S'))
+#             time.sleep(7)
+#         elif self._color == 'жёлтый':
+#             print(f'\033[43m горит {self._color} Время:', datetime.now().strftime('%H:%M:%S'))
+#             time.sleep(2)
+#         elif self._color == 'зелёный':
+#             print(f'\033[42m горит {self._color} Время:', datetime.now().strftime('%H:%M:%S'))
+#             time.sleep(7)
+#
+#
+# t_l = TrafficLight()
+# t_l._color = 'красный'
+# t_l.running()
+# t_l._color = 'жёлтый'
+# t_l.running()
+# t_l._color = 'зелёный'
+# t_l.running()
+# t_l._color = ''
+# t_l.running()
+
+
 class TrafficLight:
-    _color = 'red'
+    __color = 'red'
 
     def running(self):
-        if self._color is None or '':
-            print('Нарушена пордок переключение светофора')
-        elif self._color == 'красный':
-            print(f'\033[41m горит {self._color} Время:', datetime.now().strftime('%H:%M:%S'))
-            time.sleep(7)
-        elif self._color == 'жёлтый':
-            print(f'\033[43m горит {self._color} Время:', datetime.now().strftime('%H:%M:%S'))
-            time.sleep(2)
-        elif self._color == 'зелёный':
-            print(f'\033[42m горит {self._color} Время:', datetime.now().strftime('%H:%M:%S'))
-            time.sleep(7)
+        print('Светофор работает')
+
+        self.__color = 'red'
+        print(f'\033[41m горит {self.__color} Время:', datetime.now().strftime('%H:%M:%S'))
+        time.sleep(7)
+
+        self.__color = 'yellow'
+        print(f'\033[43m горит {self.__color} Время:', datetime.now().strftime('%H:%M:%S'))
+        time.sleep(2)
+
+        self.__color = 'green'
+        print(f'\033[42m горит {self.__color} Время:', datetime.now().strftime('%H:%M:%S'))
+        time.sleep(7)
+
+        while True:
+            self.running()
 
 
-t_l = TrafficLight()
-t_l._color = 'красный'
-t_l.running()
-t_l._color = 'жёлтый'
-t_l.running()
-t_l._color = 'зелёный'
-t_l.running()
-t_l._color = ''
-t_l.running()
+traff_light = TrafficLight()
+print(traff_light.running())
